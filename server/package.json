@@ -1,0 +1,22 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Kurt Kemple",
+  "license": "MIT",
+  "dependencies": {
+    "apollo-server": "^2.17.0",
+    "esm": "^3.2.25",
+    "graphql": "^15.3.0"
+  },
+  "devDependencies": {
+    "@trevorblades/eslint-config": "^7.2.1",
+    "dotenv": "^8.2.0",
+    "eslint": "^7.7.0",
+    "nodemon": "^2.0.4"
+  },
+  "scripts": {
+    "start": "node -r esm index.js",
+    "dev": "nodemon -r esm -r dotenv/config index.js"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "name": "client",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Kurt Kemple",
+  "license": "MIT",
+  "scripts": {
+    "start": "gatsby develop"
+  },
+  "dependencies": {
+    "@apollo/client": "^3.1.3",
+    "@chakra-ui/core": "^1.0.0-rc.2",
+    "gatsby": "^2.24.51",
+    "gatsby-plugin-chakra-ui": "^1.0.0-rc.2",
+    "gatsby-theme-apollo": "^3.0.3",
+    "graphql": "^15.3.0",
+    "isomorphic-fetch": "^2.2.1",
+    "isomorphic-ws": "^4.0.1",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "subscriptions-transport-ws": "^0.9.18"
+  }
+}
