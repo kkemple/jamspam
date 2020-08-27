@@ -22,7 +22,7 @@ const splitLink = split(
     const definition = getMainDefinition(query);
     return (
       definition.kind === "OperationDefinition" &&
-      definition.operation === "Subscription"
+      definition.operation === "subscription"
     );
   },
   wsLink,
