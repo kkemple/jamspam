@@ -12,12 +12,14 @@
     "@chakra-ui/core": "^1.0.0-rc.2",
     "gatsby": "^2.24.51",
     "gatsby-plugin-chakra-ui": "^1.0.0-rc.2",
+    "gatsby-plugin-react-helmet": "^3.3.10",
     "gatsby-theme-apollo": "^3.0.3",
     "graphql": "^15.3.0",
     "isomorphic-fetch": "^2.2.1",
     "isomorphic-ws": "^4.0.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-helmet": "^6.1.0",
     "subscriptions-transport-ws": "^0.9.18",
     "use-sound": "^1.0.2"
   }

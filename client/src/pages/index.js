@@ -54,6 +54,12 @@ const Page = () => {
   const types = Object.keys(sprites);
   return (
     <Center minH="100vh" flexDirection="column">
+      <Helmet title="JamSpam">
+        <link
+          rel="icon"
+          href="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/apple/237/speaker_1f508.png"
+        />
+      </Helmet>
       <Heading mb="4" fontSize="3xl">
         JamSpam
       </Heading>
