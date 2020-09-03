@@ -1,6 +1,8 @@
 import React, { useEffect } from "react";
 import { Button, Heading, SimpleGrid, Center, Square } from "@chakra-ui/core";
 import { gql, useMutation, useSubscription } from "@apollo/client";
+import useSound from "use-sound";
+import soundSprite from "../assets/sprite.m4a";
 
 const PLAY_SOUND = gql`
   mutation PlaySound($type: String!) {
@@ -20,24 +22,34 @@ const SOUND_PLAYED = gql`
   }
 `;
 
-const sprites = {
-  play: [0, 1000],
-  bop: [1000, 2000],
-  spin: [2000, 3000],
-  swipe: [3000, 4000],
-  console: [4000, 5000],
-  chat: [5000, 6000],
-  spam: [6000, 7000],
-  sing: [7000, 8000],
-  zap: [8000, 9000],
+const durations = {
+  zap: 1804,
+  woosh: 426,
+  honk: 648, // shoutout @Talk2MeGooseman
+  bop: 177,
 };
+
+const sprites = Object.entries(durations).reduce(
+  (acc, [key, duration], index, array) => ({
+    ...acc,
+    [key]: [
+      array.slice(0, index).reduce((total, item) => total + item[1], 0),
+      duration,
+    ],
+  }),
+  {}
+);
 
 const Page = () => {
   const { data } = useSubscription(SOUND_PLAYED);
   const [playSound] = useMutation(PLAY_SOUND);
 
+  const [play] = useSound(soundSprite, { sprite: sprites });
+
   useEffect(() => {
-    console.log(data?.soundPlayed.type);
+    if (data) {
+      play({ id: data.soundPlayed.type });
+    }
   }, [data]);
 
   const types = Object.keys(sprites);

@@ -18,6 +18,7 @@
     "isomorphic-ws": "^4.0.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "subscriptions-transport-ws": "^0.9.18"
+    "subscriptions-transport-ws": "^0.9.18",
+    "use-sound": "^1.0.2"
   }
 }
