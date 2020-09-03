@@ -43,7 +43,6 @@ const sprites = Object.entries(durations).reduce(
 const Page = () => {
   const { data } = useSubscription(SOUND_PLAYED);
   const [playSound] = useMutation(PLAY_SOUND);
-
   const [play] = useSound(soundSprite, { sprite: sprites });
 
   useEffect(() => {

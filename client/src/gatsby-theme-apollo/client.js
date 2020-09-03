@@ -5,12 +5,12 @@ import { getMainDefinition } from "@apollo/client/utilities";
 import { ApolloClient, InMemoryCache, HttpLink, split } from "@apollo/client";
 
 const httpLink = new HttpLink({
-  uri: "http://localhost:4000",
+  uri: process.env.GATSBY_API_URL,
   fetch,
 });
 
 const wsLink = new WebSocketLink({
-  uri: "ws://localhost:4000/graphql",
+  uri: process.env.GATSBY_WS_URL,
   webSocketImpl: ws,
   options: {
     reconnect: true,
