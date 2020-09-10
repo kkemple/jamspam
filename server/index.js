@@ -9,11 +9,12 @@ import { ApolloServer, gql, PubSub } from "apollo-server";
 
 const typeDefs = gql`
   type Query {
-    _empty: String
+    connections: Int
   }
 
   type Subscription {
     soundPlayed: Sound
+    connections: Int
   }
 
   type Mutation {
@@ -29,13 +30,23 @@ const typeDefs = gql`
 
 const pubsub = new PubSub();
 const SOUND_PLAYED = "SOUND_PLAYED";
+const CONNECTIONS = "CONNECTIONS";
+
+let connectionCount = 0;
 
 const resolvers = {
+  Query: {
+    connections: () => connectionCount,
+  },
   Subscription: {
     soundPlayed: {
       subscribe: () => {
-        console.log("connected");
         return pubsub.asyncIterator(SOUND_PLAYED);
+      },
+    },
+    connections: {
+      subscribe: () => {
+        return pubsub.asyncIterator(CONNECTIONS);
       },
     },
   },
@@ -58,6 +69,16 @@ const server = new ApolloServer({
   engine: {
     reportSchema: true,
     variant: "current",
+  },
+  subscriptions: {
+    onConnect: () => {
+      connectionCount++;
+      pubsub.publish(CONNECTIONS, { connections: connectionCount });
+    },
+    onDisconnect: () => {
+      connectionCount--;
+      pubsub.publish(CONNECTIONS, { connections: connectionCount });
+    },
   },
 });
 
