@@ -15,9 +15,9 @@ jobs:
         uses: iansu/apollo-schema-check-action@v1
         with:
           title: Check Against Studio Schema
-          serviceName: Soundboard 
+          graph: Soundboard
           variant: current
-          localSchemaFile: 'server/schema.graphql'
+          localSchemaFile: "server/schema.graphql"
           validationPeriod: P2W
           key: ${{ secrets.APOLLO_STUDIO_KEY }}
         env:

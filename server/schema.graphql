@@ -1,0 +1,18 @@
+type Query {
+  connections: Int
+}
+
+type Subscription {
+  soundPlayed: Sound
+  connections: Int
+}
+
+type Mutation {
+  playSound(type: String!): Sound
+  test: String
+}
+
+type Sound {
+  id: ID!
+  type: String!
+}
