@@ -16,6 +16,7 @@ jobs:
         with:
           title: Check Against Studio Schema
           graph: Jam-Spam
+          serviceName: Soundboard 
           variant: current
           localSchemaFile: 'server/schema.graphql'
           validationPeriod: P2W
