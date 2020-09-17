@@ -1,4 +1,5 @@
 import { ApolloServer, gql, PubSub } from "apollo-server";
+import fs from "fs";
 
 // how this thing should work
 // 1. user presses button -> sends mutation with sound ID
@@ -6,27 +7,6 @@ import { ApolloServer, gql, PubSub } from "apollo-server";
 // 3. client plays sound when it recieves a subscription event
 // 4. ???
 // 5. profit
-
-const typeDefs = gql`
-  type Query {
-    connections: Int
-  }
-
-  type Subscription {
-    soundPlayed: Sound
-    connections: Int
-  }
-
-  type Mutation {
-    playSound(type: String!): Sound
-    test: String
-  }
-
-  type Sound {
-    id: ID!
-    type: String!
-  }
-`;
 
 const pubsub = new PubSub();
 const SOUND_PLAYED = "SOUND_PLAYED";
@@ -63,6 +43,9 @@ const resolvers = {
   },
 };
 
+// could be replaced with graphql-tools load
+// https://www.graphql-tools.com/docs/migration-from-import/
+const typeDefs = fs.readFileSync("./schema.graphql", "utf8").toString();
 const server = new ApolloServer({
   typeDefs,
   resolvers,
