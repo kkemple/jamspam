@@ -15,8 +15,7 @@ jobs:
         uses: iansu/apollo-schema-check-action@v1
         with:
           title: Check Against Studio Schema
-          serviceName: Soundboard
-          graph: Jam-Spam
+          graph: Soundboard
           variant: current
           localSchemaFile: "server/schema.graphql"
           validationPeriod: P2W
