@@ -1,4 +1,4 @@
-import { ApolloServer, gql, PubSub } from "apollo-server";
+import { ApolloServer, PubSub } from "apollo-server";
 import fs from "fs";
 
 // how this thing should work
