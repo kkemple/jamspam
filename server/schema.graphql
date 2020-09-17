@@ -4,7 +4,7 @@ type Query {
 
 type Subscription {
   soundPlayed: Sound
-  connections: Int
+  # connections: Int
 }
 
 type Mutation {
