@@ -1,5 +1,5 @@
 type Query {
-  connections: String
+  connections: Int
 }
 
 type Subscription {
@@ -8,7 +8,7 @@ type Subscription {
 }
 
 type Mutation {
-  # playSound(type: String!): Sound
+  playSound(type: String!): Sound
   test: String
 }
 
