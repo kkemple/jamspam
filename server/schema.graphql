@@ -1,14 +1,14 @@
 type Query {
-  connections: Int
+  connections: String
 }
 
 type Subscription {
   soundPlayed: Sound
-  # connections: Int
+  connections: Int
 }
 
 type Mutation {
-  playSound(type: String!): Sound
+  # playSound(type: String!): Sound
   test: String
 }
 
